@@ -1,40 +1,47 @@
 const isCanaryShadow = require('./CanaryUtil');
-const canaryMatrixDifferentHeaders = require('./canaryMatrixDifferentHeaders');
-const canaryMatrixDifferenceSet = require('./canaryMatrixDifferenceSet');
-const canaryMatrixSameHeaders = require('./canaryMatrixSameHeaders');
-const canaryMatrixDifferentPriority = require('./canaryMatrixDifferentPriority');
-const samePriorityDifferentName = require('./samePriorityDifferentName');
-const samePriorityDifferentName2 = require('./samePriorityDifferentName2');
-const canaryMatrixDifferentPriority2 = require('./canaryMatrixDifferentPriority2');
 
-const highWeightCanaryMap = new Map();
+const preciseSetContainsGeneralSet = require('./preciseSetContainsGeneralSet');
+const preciseSetEqualGeneralSetAndPriorityLessThan = require('./preciseSetEqualGeneralSetAndPriorityLessThan');
+const preciseSetEqualGeneralSetAndPriorityEqualAndNameLessThan = require('./preciseSetEqualGeneralSetAndPriorityEqualAndNameLessThan');
+const preciseSetEqualGeneralSetAndPriorityEqualAndNameLargerThan = require('./preciseSetEqualGeneralSetAndPriorityEqualAndNameLargerThan');
+const preciseSetEqualGeneralSetAndPriorityLargerThan = require('./preciseSetEqualGeneralSetAndPriorityLargerThan');
+const preciseSetNotContainsGeneralSetAndPriorityLessThan = require('./preciseSetNotContainsGeneralSetAndPriorityLessThan');
+const preciseSetNotContainsGeneralSetAndPriorityEqualAndNameLessThan = require('./preciseSetNotContainsGeneralSetAndPriorityEqualAndNameLessThan');
+const preciseSetNotContainsGeneralSetAndPriorityEqualAndNameLargerThan = require('./preciseSetNotContainsGeneralSetAndPriorityEqualAndNameLargerThan');
+const preciseSetNotContainsGeneralSetAndPriorityLargerThan = require('./preciseSetNotContainsGeneralSetAndPriorityLargerThan');
 
-const lowWeightCanaryMap = new Map();
-
-test('differentHeaders', () => {
-  expect(isCanaryShadow(canaryMatrixDifferentHeaders, highWeightCanaryMap, lowWeightCanaryMap)).toBe(true);
+test('preciseSetContainsGeneralSet', () => {
+  expect(isCanaryShadow(preciseSetContainsGeneralSet)).toBe(false);
 });
 
-test('differenceSet', () => {
-  expect(isCanaryShadow(canaryMatrixDifferenceSet, highWeightCanaryMap, lowWeightCanaryMap)).toBe(false);
+test('preciseSetEqualGeneralSetAndPriorityLessThan', () => {
+  expect(isCanaryShadow(preciseSetEqualGeneralSetAndPriorityLessThan)).toBe(true);
 });
 
-test('sameHeaders', () => {
-  expect(isCanaryShadow(canaryMatrixSameHeaders, highWeightCanaryMap, lowWeightCanaryMap)).toBe(true);
+test('preciseSetEqualGeneralSetAndPriorityEqualAndNameLessThan', () => {
+  expect(isCanaryShadow(preciseSetEqualGeneralSetAndPriorityEqualAndNameLessThan)).toBe(true);
 });
 
-test('differentPriority', () => {
-  expect(isCanaryShadow(canaryMatrixDifferentPriority, highWeightCanaryMap, lowWeightCanaryMap)).toBe(true);
+test('preciseSetEqualGeneralSetAndPriorityEqualAndNameLargerThan', () => {
+  expect(isCanaryShadow(preciseSetEqualGeneralSetAndPriorityEqualAndNameLargerThan)).toBe(true);
 });
 
-test('samePriorityDifferentName', () => {
-  expect(isCanaryShadow(samePriorityDifferentName, highWeightCanaryMap, lowWeightCanaryMap)).toBe(true);
+test('preciseSetEqualGeneralSetAndPriorityLargerThan', () => {
+  expect(isCanaryShadow(preciseSetEqualGeneralSetAndPriorityLargerThan)).toBe(true);
 });
 
-test('samePriorityDifferentName2', () => {
-  expect(isCanaryShadow(samePriorityDifferentName2, highWeightCanaryMap, lowWeightCanaryMap)).toBe(true);
+test('preciseSetNotContainsGeneralSetAndPriorityLessThan', () => {
+  expect(isCanaryShadow(preciseSetNotContainsGeneralSetAndPriorityLessThan)).toBe(true);
 });
 
-test('differentPriority2', () => {
-  expect(isCanaryShadow(canaryMatrixDifferentPriority2, highWeightCanaryMap, lowWeightCanaryMap)).toBe(true);
+test('preciseSetNotContainsGeneralSetAndPriorityEqualAndNameLessThan', () => {
+  expect(isCanaryShadow(preciseSetNotContainsGeneralSetAndPriorityEqualAndNameLessThan)).toBe(true);
+});
+
+test('preciseSetNotContainsGeneralSetAndPriorityEqualAndNameLargerThan', () => {
+  expect(isCanaryShadow(preciseSetNotContainsGeneralSetAndPriorityEqualAndNameLargerThan)).toBe(false);
+});
+
+test('preciseSetNotContainsGeneralSetAndPriorityLargerThan', () => {
+  expect(isCanaryShadow(preciseSetNotContainsGeneralSetAndPriorityLargerThan)).toBe(false);
 });
