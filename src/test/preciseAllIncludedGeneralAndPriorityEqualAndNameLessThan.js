@@ -38,7 +38,7 @@ const beijing = {
 
 const shanghai = {
   name: 'shanghai',
-  priority: 2,
+  priority: 3,
   selector: {
     matchServices: [
       {
@@ -74,9 +74,9 @@ const shanghai = {
   beShadowed: 0,
 };
 
-const preciseSetEqualGeneralSetAndPriorityLargerThan = [
+const preciseAllIncludedGeneralAndPriorityEqualAndNameLessThan = [
   beijing,
   shanghai,
 ];
 
-module.exports = preciseSetEqualGeneralSetAndPriorityLargerThan;
+module.exports = preciseAllIncludedGeneralAndPriorityEqualAndNameLessThan;

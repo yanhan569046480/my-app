@@ -1,6 +1,6 @@
 const beijing = {
   name: 'beijing',
-  priority: 3,
+  priority: 2,
   selector: {
     matchServices: [
       {
@@ -65,6 +65,13 @@ const android = {
     headers: [
       {
         id: '930fde0c-a240-4c2d-8866-c5468d64d9a0',
+        key: 'X-Location',
+        value: {
+          exact: 'Beijing',
+        },
+      },
+      {
+        id: '930fde0c-a240-4c2d-8866-c5468d64d9a0',
         key: 'X-Phone-Os',
         value: {
           exact: 'Android',
@@ -81,9 +88,9 @@ const android = {
   beShadowed: 0,
 };
 
-const preciseSetNotContainsGeneralSetAndPriorityLargerThan = [
+const precisePartiallyIncludedGeneralAndPriorityEqualAndNameLargerThan = [
   beijing,
   android,
 ];
 
-module.exports = preciseSetNotContainsGeneralSetAndPriorityLargerThan;
+module.exports = precisePartiallyIncludedGeneralAndPriorityEqualAndNameLargerThan;

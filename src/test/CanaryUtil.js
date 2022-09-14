@@ -26,7 +26,7 @@ function isCanaryShadow(canaryMatrix) {
       // console.log('preciseSetCanary', preciseSetCanary);
     }
 
-    let existenceOfOutRangeHeader = true;
+    let existenceOfOutRangeHeader = false;
     generalSetCanary.trafficRules.headers.forEach((generalSetHeader) => {
       let findPreciseHeader = preciseSetCanary.trafficRules.headers.find(
         (preciseSetHeader) => {
@@ -35,10 +35,13 @@ function isCanaryShadow(canaryMatrix) {
       );
       if (!findPreciseHeader) {
         // console.log('findGeneralHeader', findGeneralHeader);
-        existenceOfOutRangeHeader = false;
+        existenceOfOutRangeHeader = true;
       }
     });
-    if (!existenceOfOutRangeHeader) {
+    if (existenceOfOutRangeHeader) {
+      generalSetCanary.beShadowed = false;
+      preciseSetCanary.beShadowed = false;
+
       // console.log('exist', exist);
       return false;
     }
