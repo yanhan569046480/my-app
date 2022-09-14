@@ -48,45 +48,51 @@ function isCanaryShadow(canaryMatrix) {
       preciseSetCanary.trafficRules.headers.length
     ) {
       if (generalSetCanary.priority < preciseSetCanary.priority) {
-        preciseSetCanary.beShadowed += 1;
+        preciseSetCanary.beShadowed = true;
 
         // console.log('priority.less.than', true);
         return true;
       } else if (generalSetCanary.priority == preciseSetCanary.priority) {
         if (generalSetCanary.name.localeCompare(preciseSetCanary.name) == -1) {
-          preciseSetCanary.beShadowed += 1;
+          preciseSetCanary.beShadowed = true;
 
           // console.log('priority.equal.but.name.less.than', true);
           return true;
         } else {
-          generalSetCanary.beShadowed += 1;
+          generalSetCanary.beShadowed = true;
 
           // console.log('priority.equal.but.name.more.than', true);
           return true;
         }
       } else {
-        generalSetCanary.beShadowed += 1;
+        generalSetCanary.beShadowed = true;
 
         // console.log('priority.more.than', true);
         return true;
       }
     } else {
       if (generalSetCanary.priority < preciseSetCanary.priority) {
-        preciseSetCanary.beShadowed += 1;
+        preciseSetCanary.beShadowed = true;
 
         // console.log('priority.less.than', true);
         return true;
       } else if (generalSetCanary.priority == preciseSetCanary.priority) {
         if (generalSetCanary.name.localeCompare(preciseSetCanary.name) == -1) {
-          preciseSetCanary.beShadowed += 1;
+          preciseSetCanary.beShadowed = true;
 
           // console.log('priority.equal.but.name.less.than', true);
           return true;
         } else {
+          generalSetCanary.beShadowed = false;
+          preciseSetCanary.beShadowed = false;
+
           // console.log('priority.equal.but.name.more.than', true);
           return false;
         }
       } else {
+        generalSetCanary.beShadowed = false;
+        preciseSetCanary.beShadowed = false;
+
         // console.log('priority.more.than', true);
         return false;
       }
