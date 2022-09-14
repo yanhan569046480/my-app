@@ -25,6 +25,13 @@ const beijing = {
           exact: 'Beijing',
         },
       },
+      {
+        id: '832a9315-988c-4f0f-8051-78640cce7e8d',
+        key: 'X-Year-Month',
+        value: {
+          exact: '202210',
+        },
+      },
     ],
   },
   status: 0,
@@ -56,6 +63,13 @@ const android = {
   },
   trafficRules: {
     headers: [
+      {
+        id: '930fde0c-a240-4c2d-8866-c5468d64d9a0',
+        key: 'X-Location',
+        value: {
+          exact: 'Beijing',
+        },
+      },
       {
         id: '832a9315-988c-4f0f-8051-78640cce7e8d',
         key: 'X-Phone-Os',
